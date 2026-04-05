@@ -202,7 +202,7 @@ def run_optimization(
         )
 
     schedule_fallback_used = False
-    retries = 8 if config.name.upper() == "NFL" else 4
+    retries = 8 if config.name.upper() == "NFL" else 1
     try:
         optimized = _solve_with_restarts(effective_config, teams, retries=retries, prioritize_emissions=True)
     except RuntimeError:
