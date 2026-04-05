@@ -1,0 +1,163 @@
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 220 37% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 37% 12%;
+  --primary: 201 92% 46%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 20% 94%;
+  --secondary-foreground: 220 37% 16%;
+  --muted: 210 20% 94%;
+  --muted-foreground: 220 10% 40%;
+  --accent: 186 100% 92%;
+  --accent-foreground: 200 80% 24%;
+  --border: 214 24% 89%;
+  --input: 214 24% 89%;
+  --ring: 201 92% 46%;
+}
+
+.dark {
+  --background: 222 45% 8%;
+  --foreground: 210 38% 96%;
+  --card: 223 35% 12%;
+  --card-foreground: 210 38% 96%;
+  --primary: 191 100% 54%;
+  --primary-foreground: 223 50% 10%;
+  --secondary: 222 25% 17%;
+  --secondary-foreground: 210 38% 96%;
+  --muted: 222 25% 17%;
+  --muted-foreground: 217 14% 70%;
+  --accent: 217 33% 20%;
+  --accent-foreground: 197 95% 74%;
+  --border: 219 25% 22%;
+  --input: 219 25% 22%;
+  --ring: 191 100% 54%;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: "Satoshi", "General Sans", "Inter", ui-sans-serif, system-ui;
+}
+
+[data-league] {
+  transition: background-color 320ms ease, color 320ms ease;
+}
+
+.league-pill-active {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 0 1px hsl(var(--primary) / 0.2), 0 8px 20px hsl(var(--primary) / 0.22);
+}
+
+.league-border-nba {
+  border-color: rgba(249, 115, 22, 0.28) !important;
+}
+
+.league-border-nhl {
+  border-color: rgba(56, 189, 248, 0.24) !important;
+}
+
+.league-border-nfl {
+  border-color: rgba(22, 101, 52, 0.34) !important;
+}
+
+.league-card-nba {
+  background: linear-gradient(160deg, hsl(var(--card)) 68%, rgba(249, 115, 22, 0.07));
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.08);
+}
+
+.league-card-nhl {
+  background: linear-gradient(160deg, hsl(var(--card)) 70%, rgba(56, 189, 248, 0.08));
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.08);
+}
+
+.league-card-nfl {
+  background: linear-gradient(160deg, hsl(var(--card)) 72%, rgba(22, 101, 52, 0.08));
+  border-radius: 0.65rem;
+  box-shadow: 0 10px 28px rgba(22, 101, 52, 0.14);
+}
+
+.league-hero-nba {
+  background-image:
+    radial-gradient(circle at 14% 22%, rgba(251, 146, 60, 0.12), transparent 48%),
+    radial-gradient(circle at 50% 98%, rgba(180, 83, 9, 0.18) 0 1px, transparent 1px 34%),
+    radial-gradient(circle at 50% 100%, rgba(249, 115, 22, 0.14) 0 2px, transparent 2px 100%),
+    linear-gradient(90deg, rgba(180, 83, 9, 0.12) 0 2px, transparent 2px 100%);
+  background-size: auto, 520px 260px, 420px 240px, 180px 100%;
+}
+
+.league-hero-nhl {
+  background-image:
+    radial-gradient(circle at 82% 28%, rgba(125, 211, 252, 0.14), transparent 52%),
+    radial-gradient(circle at 34% 55%, transparent 0 24px, rgba(14, 116, 144, 0.14) 24px 26px, transparent 26px 100%),
+    radial-gradient(circle at 66% 55%, transparent 0 24px, rgba(14, 116, 144, 0.14) 24px 26px, transparent 26px 100%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.09) 0 2px, transparent 2px 34px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.12) 0 2px, transparent 2px 100%);
+  background-size: auto, 320px 120px, 320px 120px, auto, 200px 100%;
+}
+
+.league-hero-nfl {
+  background-image:
+    linear-gradient(90deg, rgba(21, 128, 61, 0.14) 0 2px, transparent 2px 100%),
+    linear-gradient(0deg, rgba(21, 128, 61, 0.1) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 84% 24%, rgba(132, 204, 22, 0.14), transparent 56%),
+    linear-gradient(45deg, transparent calc(50% - 1px), rgba(255, 255, 255, 0.35) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
+    linear-gradient(-45deg, transparent calc(50% - 1px), rgba(255, 255, 255, 0.35) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
+    radial-gradient(circle, transparent 0 6px, rgba(255, 255, 255, 0.42) 6px 7px, transparent 7px 100%);
+  background-size: 52px 100%, 100% 38px, auto, 40px 40px, 40px 40px, 40px 40px;
+}
+
+.league-glow-nba {
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.35), 0 10px 28px rgba(249, 115, 22, 0.32);
+}
+
+.league-glow-nhl {
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.28), 0 10px 28px rgba(56, 189, 248, 0.25);
+}
+
+.league-glow-nfl {
+  box-shadow: 0 0 0 1px rgba(22, 101, 52, 0.35), 0 10px 24px rgba(22, 101, 52, 0.22);
+}
+
+.league-texture-nba {
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)),
+    repeating-linear-gradient(90deg, rgba(180, 83, 9, 0.035) 0 1px, transparent 1px 120px),
+    radial-gradient(circle at 50% 102%, rgba(180, 83, 9, 0.07) 0 2px, transparent 2px 100%);
+  background-size: auto, auto, 380px 220px;
+}
+
+.league-texture-nhl {
+  background-image:
+    linear-gradient(to bottom, rgba(2, 132, 199, 0.03), rgba(0, 0, 0, 0)),
+    radial-gradient(circle at 50% 18%, rgba(125, 211, 252, 0.08), transparent 44%),
+    repeating-linear-gradient(0deg, rgba(148, 163, 184, 0.045) 0 1px, transparent 1px 100px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 0 1px, transparent 1px 180px);
+  background-size: auto, auto, auto, auto;
+}
+
+.league-texture-nfl {
+  background-image:
+    linear-gradient(to bottom, rgba(22, 101, 52, 0.05), rgba(0, 0, 0, 0)),
+    repeating-linear-gradient(90deg, rgba(21, 128, 61, 0.06) 0 1px, transparent 1px 44px),
+    repeating-linear-gradient(0deg, rgba(132, 204, 22, 0.04) 0 1px, transparent 1px 36px),
+    radial-gradient(circle at 25% 40%, rgba(255,255,255,0.45) 0 1px, transparent 1px 100%),
+    radial-gradient(circle at 35% 50%, rgba(255,255,255,0.45) 0 1px, transparent 1px 100%),
+    radial-gradient(circle at 65% 58%, rgba(255,255,255,0.45) 0 1px, transparent 1px 100%),
+    radial-gradient(circle at 75% 68%, rgba(255,255,255,0.45) 0 1px, transparent 1px 100%);
+  background-size: auto, auto, auto, 42px 42px, 42px 42px, 42px 42px, 42px 42px;
+}
+
+.league-table-head {
+  backdrop-filter: blur(10px);
+}
