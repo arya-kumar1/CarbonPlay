@@ -17,6 +17,8 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://carbon-play-jxqaxmt7g-arya-kumar1s-projects.vercel.app",
+        "https://carbon-play-bvr2kcxab-arya-kumar1s-projects.vercel.app",
+
     ],
     allow_credentials=True,
     allow_methods=["*"],
